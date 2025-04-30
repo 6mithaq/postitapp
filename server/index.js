@@ -13,8 +13,11 @@ app.use(express.json());
 app.use(cors());
 
 //Database connection
-const connectString =
-  `mongodb+srv:///${ENV.DB_USER}:${ENV.DB_PASSWORD}@${ENV.DB_CLUSTER}.xmj6ti0.mongodb.net/${ENV.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
+//const connectString =
+//  "mongodb+srv://admin:admin@cluster0.xmj6ti0.mongodb.net/postITDb?retryWrites=true&w=majority&appName=Cluster0";
+
+  const connectString =
+  `mongodb+srv://${ENV.DB_USER}:${ENV.DB_PASSWORD}@${ENV.DB_CLUSTER}/${ENV.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;  
 
 mongoose.connect(connectString, {
   useNewUrlParser: true,
@@ -41,7 +44,6 @@ mongoose
   .connect(connectString)
   .then(() => console.log("✅ MongoDB connected successfully!"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
-
 
 app.post("/registerUser", async (req, res) => {
   try {
@@ -168,11 +170,11 @@ app.put("/likePost/:postId/", async (req, res) => {
 });
 
 //app.listen(3001, () => {
-  //console.log("You are connected");
+//  console.log("You are connected");
 //});
 
 const port = ENV.PORT || 3001;
 app.listen(port, () => {
-console.log(`You are connected at port: ${port}`);
+  console.log(`You are connected at port: ${port}`);
 });
 
