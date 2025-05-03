@@ -31,33 +31,33 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-4">Destinations</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/cruises?destination=caribbean">
-                  <a className="text-sm hover:text-accent">Caribbean</a>
+                <Link href="/cruises?destination=caribbean" className="text-sm hover:text-accent">
+                  Caribbean
                 </Link>
               </li>
               <li>
-                <Link href="/cruises?destination=mediterranean">
-                  <a className="text-sm hover:text-accent">Mediterranean</a>
+                <Link href="/cruises?destination=mediterranean" className="text-sm hover:text-accent">
+                  Mediterranean
                 </Link>
               </li>
               <li>
-                <Link href="/cruises?destination=alaska">
-                  <a className="text-sm hover:text-accent">Alaska</a>
+                <Link href="/cruises?destination=alaska" className="text-sm hover:text-accent">
+                  Alaska
                 </Link>
               </li>
               <li>
-                <Link href="/cruises?destination=europe">
-                  <a className="text-sm hover:text-accent">Europe</a>
+                <Link href="/cruises?destination=europe" className="text-sm hover:text-accent">
+                  Europe
                 </Link>
               </li>
               <li>
-                <Link href="/cruises?destination=asia">
-                  <a className="text-sm hover:text-accent">Asia</a>
+                <Link href="/cruises?destination=asia" className="text-sm hover:text-accent">
+                  Asia
                 </Link>
               </li>
               <li>
-                <Link href="/cruises?destination=southamerica">
-                  <a className="text-sm hover:text-accent">South America</a>
+                <Link href="/cruises?destination=southamerica" className="text-sm hover:text-accent">
+                  South America
                 </Link>
               </li>
             </ul>

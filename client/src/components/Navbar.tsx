@@ -42,28 +42,20 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link href="/">
-                <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/")}`}>
-                  Home
-                </a>
+              <Link href="/" className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/")}`}>
+                Home
               </Link>
-              <Link href="/cruises">
-                <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/cruises")}`}>
-                  Cruises
-                </a>
+              <Link href="/cruises" className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/cruises")}`}>
+                Cruises
               </Link>
               {user && (
-                <Link href="/dashboard">
-                  <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/dashboard")}`}>
-                    My Bookings
-                  </a>
+                <Link href="/dashboard" className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/dashboard")}`}>
+                  My Bookings
                 </Link>
               )}
               {user?.isAdmin && (
-                <Link href="/admin">
-                  <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/admin")}`}>
-                    Admin
-                  </a>
+                <Link href="/admin" className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${isActive("/admin")}`}>
+                  Admin
                 </Link>
               )}
             </div>
@@ -111,15 +103,11 @@ const Navbar = () => {
               </DropdownMenu>
             ) : (
               <>
-                <Link href="/auth">
-                  <a className="px-3 py-2 text-sm text-text-secondary hover:text-primary font-medium">
-                    Sign In
-                  </a>
+                <Link href="/auth" className="px-3 py-2 text-sm text-text-secondary hover:text-primary font-medium">
+                  Sign In
                 </Link>
-                <Link href="/auth?tab=register">
-                  <a className="px-4 py-2 text-sm text-white bg-primary hover:bg-primary-light rounded-md font-medium transition-colors">
-                    Register
-                  </a>
+                <Link href="/auth?tab=register" className="px-4 py-2 text-sm text-white bg-primary hover:bg-primary-light rounded-md font-medium transition-colors">
+                  Register
                 </Link>
               </>
             )}
@@ -136,40 +124,36 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="right" className="sm:max-w-sm">
                 <div className="flex flex-col px-2 pt-2 pb-3 space-y-1">
-                  <Link href="/">
-                    <a 
-                      className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Home
-                    </a>
+                  <Link 
+                    href="/" 
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Home
                   </Link>
-                  <Link href="/cruises">
-                    <a 
-                      className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/cruises" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Cruises
-                    </a>
+                  <Link 
+                    href="/cruises" 
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/cruises" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Cruises
                   </Link>
                   {user && (
-                    <Link href="/dashboard">
-                      <a 
-                        className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/dashboard" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        My Bookings
-                      </a>
+                    <Link 
+                      href="/dashboard" 
+                      className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/dashboard" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      My Bookings
                     </Link>
                   )}
                   {user?.isAdmin && (
-                    <Link href="/admin">
-                      <a 
-                        className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/admin" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Admin Panel
-                      </a>
+                    <Link 
+                      href="/admin" 
+                      className={`block px-3 py-2 rounded-md text-base font-medium ${location === "/admin" ? "bg-primary text-white" : "text-foreground hover:bg-background"}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Admin Panel
                     </Link>
                   )}
                   <div className="pt-4 pb-3 border-t border-gray-200">
@@ -202,21 +186,19 @@ const Navbar = () => {
                       </>
                     ) : (
                       <div className="mt-3 space-y-1">
-                        <Link href="/auth">
-                          <a 
-                            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-background"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            Sign In
-                          </a>
+                        <Link 
+                          href="/auth"
+                          className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-background"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Sign In
                         </Link>
-                        <Link href="/auth?tab=register">
-                          <a
-                            className="block px-3 py-2 rounded-md text-base font-medium bg-primary text-white"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            Register
-                          </a>
+                        <Link 
+                          href="/auth?tab=register"
+                          className="block px-3 py-2 rounded-md text-base font-medium bg-primary text-white"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Register
                         </Link>
                       </div>
                     )}
