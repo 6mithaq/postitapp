@@ -8,25 +8,15 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-
+    "start": "node index.js"
   },
   "dependencies": {
-    "@replit/vite-plugin-cartographer": "^0.1.2",
-    "@replit/vite-plugin-runtime-error-modal": "^0.0.3",
-    "@vitejs/plugin-react": "^4.4.1",
     "bcrypt": "^5.1.1",
-    "class-variance-authority": "^0.7.1",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.43.1",
-    "drizzle-zod": "^0.7.1",
     "express": "^5.1.0",
-    "mongodb": "^6.15.0",
-    "mongoose": "^8.14.2",
-    "nodemon": "^3.1.9",
-    "vite": "^6.3.5",
-    "zod": "^3.24.4"
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.0",
+    "nodemon": "^3.1.9"
   }
 }

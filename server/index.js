@@ -1,12 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import UserModel from "./Models/Booking.js";
+import UserModel from "./Models/UserModel.js";
 import bcrypt from "bcrypt";
-import PostModel from "./Models/Cruise.js";
-import dotenv from "dotenv";
-dotenv.config();
-
+import PostModel from "./Models/Posts.js";
 
 import * as ENV from "./config.js";
 
@@ -41,7 +38,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const connectString = `mongodb+srv://${ENV.DB_USER}:${ENV.DB_PASSWORD}@${ENV.DB_CLUSTER}/${ENV.DB_NAME}?retryWrites=true&w=majority`;
-//const connectString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 // Connect to MongoDB
 mongoose

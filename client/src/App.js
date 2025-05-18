@@ -1,73 +1,41 @@
-import React from "react";
-import { Switch, Route } from "wouter";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./lib/queryClient";
-import Toaster from './Components/ui/toaster';
-//import Tooltip from './Components/ui/tooltip';
-import Tooltip from './Components/ui/tooltip';
-import NotFound from './pages/not-found';
-import HomePage from './pages/home-page';
-import { TooltipProvider } from "./Components/ui/tooltip";
-import AuthPage from "./pages/auth-page";
-import CruisesPage from "./pages/cruises-page";
-import CruiseDetailsPage from "./pages/cruise-details-page";
-import CustomerDashboard from "./pages/customer-dashboard";
-import AdminDashboard from "./pages/admin-dashboard";
-import AdminCruises from "./pages/admin-cruises";
-import AdminUsers from "./pages/admin-users";
-import AdminBookings from "./pages/admin-bookings";
-import './App.css';
+import "./App.css";
+import About from "./Components/About";
+//import Header from "./Components/Header";
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-import { ProtectedRoute, AdminRoute } from "./lib/protected-route";
-import { AuthProvider } from "./hooks/use-auth";
-import Navbar from "./Components/Navbar";
+import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import { Container, Row } from "reactstrap";
 
-function Router() {
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Profile from "./Components/Profile";
+import Register from "./Components/Register";
+
+const App = () => {
   return (
-    <Switch>
-      {/* Public routes */}
-      <Route path="/" component={HomePage} />
-      <Route path="/auth" component={AuthPage} />
-      <Route path="/cruises" component={CruisesPage} />
-      <Route path="/cruises/:id" component={CruiseDetailsPage} />
+    <Container fluid>
+      <Router>
+        <Row>
+          <Header />
+        </Row>
 
-      {/* Protected routes */}
-      <ProtectedRoute path="/dashboard" component={CustomerDashboard} />
+        <Row className="main">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+          </Routes>
+        </Row>
 
-      {/* Admin routes */}
-      <AdminRoute path="/admin" component={AdminDashboard} />
-      <AdminRoute path="/admin/cruises" component={AdminCruises} />
-      <AdminRoute path="/admin/users" component={AdminUsers} />
-      <AdminRoute path="/admin/bookings" component={AdminBookings} />
-
-      {/* 404 fallback */}
-      <Route component={NotFound} />
-    </Switch>
+        <Row>
+          <Footer />
+        </Row>
+      </Router>
+    </Container>
   );
-}
-
-function App() {
-  
-  return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">
-              <Router />
-            </main>
-            <Footer />
-          </div>
-        </TooltipProvider>
-      </AuthProvider>
-    </QueryClientProvider>
-  );
-}
-
-
+};
 
 export default App;
