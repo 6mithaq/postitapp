@@ -1,9 +1,10 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
-
+import '../../index.css';
 import { cn } from "/lib/utils";
 import { buttonVariants } from "../Components/ui/button";
+import '../index.css';
 
 function Calendar({
   className,

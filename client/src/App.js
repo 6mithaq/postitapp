@@ -2,30 +2,27 @@ import React from "react";
 import { Switch, Route } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
-//import { Toaster } from "../Components/ui/toaster";
-
 import Toaster from './Components/ui/toaster';
 //import Tooltip from './Components/ui/tooltip';
+import Tooltip from './Components/ui/tooltip';
 import NotFound from './pages/not-found';
 import HomePage from './pages/home-page';
+import { TooltipProvider } from "./Components/ui/tooltip";
+import AuthPage from "./pages/auth-page";
+import CruisesPage from "./pages/cruises-page";
+import CruiseDetailsPage from "./pages/cruise-details-page";
+import CustomerDashboard from "./pages/customer-dashboard";
+import AdminDashboard from "./pages/admin-dashboard";
+import AdminCruises from "./pages/admin-cruises";
+import AdminUsers from "./pages/admin-users";
+import AdminBookings from "./pages/admin-bookings";
+import './App.css';
 
-import { TooltipProvider } from "../Components/ui/tooltip";
-
-//import NotFound from "../pages/not-found";
-//import HomePage from "../pages/home-page";
-import AuthPage from "../pages/auth-page";
-import CruisesPage from "../pages/cruises-page";
-import CruiseDetailsPage from "../pages/cruise-details-page";
-import CustomerDashboard from "../pages/customer-dashboard";
-import AdminDashboard from "../pages/admin-dashboard";
-import AdminCruises from "../pages/admin-cruises";
-import AdminUsers from "../pages/admin-users";
-import AdminBookings from "../pages/admin-bookings";
 
 import { ProtectedRoute, AdminRoute } from "./lib/protected-route";
 import { AuthProvider } from "./hooks/use-auth";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 function Router() {
   return (
@@ -52,6 +49,7 @@ function Router() {
 }
 
 function App() {
+  
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>

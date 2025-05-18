@@ -1,15 +1,4 @@
-//import { useToast } from "./hooks/use-toast";
-//import {
-  //Toast,
-  //ToastClose,
-  //ToastDescription,
-  //ToastProvider,
-  //ToastTitle,
-  //ToastViewport,
-//} from "../Components/ui/toast";
-
-
-import { useToast } from "../../hooks/use-toast"; // Correct relative path
+import { useToast } from "../../hooks/use-toast";
 import {
   Toast,
   ToastClose,
@@ -18,33 +7,29 @@ import {
   ToastTitle,
   ToastViewport,
 } from "./toast";
-
-import Toaster from './Components/ui/toaster';
-
-
+//import { Button } from "../Components/ui/button";
+import { Button } from './button';
+ 
+import '../../index.css';
 export function Toaster() {
   const { toasts } = useToast();
 
   return (
     <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
-        return (
-          <Toast key={id} {...props}>
-            <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
-            </div>
-            {action}
-            <ToastClose />
-          </Toast>
-        );
-      })}
+      {toasts.map(({ id, title, description, action, ...props }) => (
+        <Toast key={id} {...props}>
+          <div className="grid gap-1">
+            {title && <ToastTitle>{title}</ToastTitle>}
+            {description && <ToastDescription>{description}</ToastDescription>}
+          </div>
+          {action}
+          <ToastClose />
+        </Toast>
+      ))}
       <ToastViewport />
     </ToastProvider>
   );
-
-  
 }
+
+// Optional: If you want to import as default elsewhere
 export default Toaster;

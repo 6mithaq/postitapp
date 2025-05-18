@@ -1,14 +1,17 @@
 "use client"
 
-import * as React from "react"
-import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group"
-import { cn } from "/lib/utils"
-import { toggleVariants } from "/Components/ui/toggle"
+import * as React from "react";
+import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
+import { cn } from "../lib/utils";
+import { toggleVariants } from "/Components/ui/toggle";
+import '../../index.css';
+import '../index.css';
 
 const ToggleGroupContext = React.createContext({
   size: "default",
   variant: "default",
 })
+
 
 const ToggleGroup = React.forwardRef(
   (

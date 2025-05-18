@@ -13,6 +13,9 @@ const {
 import { Strategy as LocalStrategy } from "passport-local";
 import session from "express-session";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
+// Node environment only
+const tailwindConfig = require('./tailwind.config.js');
+
 //import { promisify } from "./utils.js";
 
 import storage from '../storage.js';

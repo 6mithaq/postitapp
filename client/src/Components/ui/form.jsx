@@ -4,9 +4,10 @@ import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import { Controller, FormProvider, useFormContext } from "react-hook-form";
+import '../../index.css';
+import { cn } from "../../lib/utils";
 
-import { cn } from "/lib/utils";
-import { Label } from "/Components/ui/label";
+import {Label} from './label';
 
 const Form = FormProvider;
 
@@ -131,4 +132,5 @@ export {
   FormDescription,
   FormMessage,
   FormField,
+
 };

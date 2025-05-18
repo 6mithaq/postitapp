@@ -1,37 +1,32 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-import usersReducer from "../Features/cruiseSlice"; //import the reducer
-import postReducer from "../Features/bookingSlice";
-
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Uses localStorage by default
 import { combineReducers } from "redux";
 
+import usersReducer from "../Features/cruiseSlice";
+import postReducer from "../Features/bookingSlice";
+
 // Redux Persist config
 const persistConfig = {
-  key: "reduxstore", // The key to identify the persisted state in storage
-  storage, // The storage method (localStorage)
+  key: "reduxstore",
+  storage,
 };
 
+// Combine all reducers
 const rootReducer = combineReducers({
-  users: usersReducer, // Manage users slice of the state
-  posts: postReducer, // Manage posts slice of the state
+  users: usersReducer,
+  posts: postReducer,
 });
 
+// Create persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-/*
-export const store = configureStore({
-  reducer: {
-    users: usersReducer,
-    posts: postReducer,
-  },
-});
-*/
-
+//Correct declaration of store
 const store = configureStore({
-  reducer: persistedReducer, // Use the persisted reducer in the store,
+  reducer: persistedReducer,
 });
 
-const persistore = persistStore(store); // Create persistore for rehydration
-export { store, persistore };
+// Export both store and persistore (not "persistore" – fix spelling if needed)
+const persistor = persistStore(store);
+
+export { store, persistor };

@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { ChevronRight, MoreHorizontal } from "lucide-react";
-
+import '../../index.css';
 import { cn } from "./lib/utils";
+import '../index.css';
 
 const Breadcrumb = React.forwardRef((props, ref) => (
   <nav ref={ref} aria-label="breadcrumb" {...props} />

@@ -1,0 +1,25 @@
+/* Collapsible.css */
+
+.collapsible-content {
+  overflow: hidden;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.collapsible-content[data-state="closed"] {
+  height: 0;
+  opacity: 0;
+}
+
+.collapsible-trigger {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.collapsible-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}

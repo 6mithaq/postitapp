@@ -1,0 +1,171 @@
+/* DropdownMenu.css */
+
+.dropdown-menu-sub-trigger {
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+  border-radius: 0.125rem; /* rounded-sm */
+  padding: 0.375rem 0.5rem; /* py-1.5 px-2 */
+  font-size: 0.875rem; /* text-sm */
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu-sub-trigger:focus,
+.dropdown-menu-sub-trigger[data-state="open"] {
+  background-color: var(--accent-bg, #e0e0e0);
+}
+
+.dropdown-menu-sub-trigger svg {
+  pointer-events: none;
+  width: 1rem; /* size-4 */
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.dropdown-menu-sub-trigger.inset {
+  padding-left: 2rem; /* pl-8 */
+}
+
+.dropdown-menu-sub-trigger .chevron-right {
+  margin-left: auto;
+}
+
+/* SubContent and Content */
+.dropdown-menu-content,
+.dropdown-menu-sub-content {
+  z-index: 50;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: 0.375rem; /* rounded-md */
+  border: 1px solid var(--border-color, #ccc);
+  background-color: var(--popover-bg, #fff);
+  padding: 0.25rem; /* p-1 */
+  color: var(--popover-foreground, #000);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation-fill-mode: forwards;
+  /* Animations for open/close states can be implemented via CSS animations or omitted */
+}
+
+/* Content specifics */
+.dropdown-menu-content {
+  max-height: var(--radix-dropdown-menu-content-available-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Item */
+.dropdown-menu-item {
+  position: relative;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+  border-radius: 0.125rem; /* rounded-sm */
+  padding: 0.375rem 0.5rem; /* py-1.5 px-2 */
+  font-size: 0.875rem; /* text-sm */
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-menu-item:focus {
+  background-color: var(--accent-bg, #e0e0e0);
+  color: var(--accent-foreground, #000);
+}
+
+.dropdown-menu-item[data-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.dropdown-menu-item svg {
+  pointer-events: none;
+  width: 1rem; /* size-4 */
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.dropdown-menu-item.inset {
+  padding-left: 2rem; /* pl-8 */
+}
+
+/* Checkbox and Radio Items */
+.dropdown-menu-checkbox-item,
+.dropdown-menu-radio-item {
+  position: relative;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  padding: 0.375rem 0.5rem 0.375rem 2rem; /* py-1.5 pl-8 pr-2 */
+  font-size: 0.875rem; /* text-sm */
+  border-radius: 0.125rem;
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-menu-checkbox-item:focus,
+.dropdown-menu-radio-item:focus {
+  background-color: var(--accent-bg, #e0e0e0);
+  color: var(--accent-foreground, #000);
+}
+
+.dropdown-menu-checkbox-item[data-disabled="true"],
+.dropdown-menu-radio-item[data-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Indicators container */
+.dropdown-menu-item-indicator {
+  position: absolute;
+  left: 0.5rem; /* left-2 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0.875rem; /* h-3.5 */
+  width: 0.875rem; /* w-3.5 */
+}
+
+/* Checkbox icon */
+.dropdown-menu-checkbox-item .icon-check {
+  width: 1rem; /* h-4 w-4 */
+  height: 1rem;
+}
+
+/* Radio icon */
+.dropdown-menu-radio-item .icon-circle {
+  width: 0.5rem; /* h-2 w-2 */
+  height: 0.5rem;
+  fill: currentColor;
+}
+
+/* Label */
+.dropdown-menu-label {
+  padding: 0.375rem 0.5rem; /* py-1.5 px-2 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600; /* font-semibold */
+}
+
+.dropdown-menu-label.inset {
+  padding-left: 2rem; /* pl-8 */
+}
+
+/* Separator */
+.dropdown-menu-separator {
+  margin: 0.25rem  -0.25rem; /* my-1 -mx-1 */
+  height: 1px;
+  background-color: var(--muted, #ccc);
+}
+
+/* Shortcut */
+.dropdown-menu-shortcut {
+  margin-left: auto;
+  font-size: 0.75rem; /* text-xs */
+  letter-spacing: 0.1em; /* tracking-widest */
+  opacity: 0.6;
+}

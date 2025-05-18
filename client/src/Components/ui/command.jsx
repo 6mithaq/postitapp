@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
-
-import { cn } from "/lib/utils";
+import '../../index.css';
+import { cn } from "../lib/utils";
 import { Dialog, DialogContent } from "./Components/ui/dialog";
+import '../index.css';
 
 const Command = React.forwardRef(({ className, ...props }, ref) => (
   <CommandPrimitive

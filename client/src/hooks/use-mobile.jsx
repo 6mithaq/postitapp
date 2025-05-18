@@ -1,4 +1,6 @@
 import * as React from "react";
+import '../index.css';
+
 
 const MOBILE_BREAKPOINT = 768;
 

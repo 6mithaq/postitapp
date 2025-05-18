@@ -1,0 +1,41 @@
+.radio-group-root {
+  display: grid;
+  gap: 0.5rem; /* gap-2 = 8px */
+}
+
+.radio-group-item {
+  aspect-ratio: 1 / 1; /* aspect-square */
+  height: 1rem; /* h-4 = 16px */
+  width: 1rem;  /* w-4 = 16px */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.radio-group-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring), 0 0 0 4px var(--ring-offset);
+}
+
+.radio-group-item.disabled,
+.radio-group-item[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.radio-group-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-group-circle {
+  height: 0.625rem; /* 2.5 * 0.25rem = 10px */
+  width: 0.625rem;
+  fill: currentColor;
+  color: currentColor;
+}

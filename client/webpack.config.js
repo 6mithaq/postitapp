@@ -1,47 +1,80 @@
-import { resolve, join } from 'path';
+import { resolve, join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export const mode = 'development';
-export const entry = '../src/index.js';
-export const output = {
-  path: resolve(__dirname, 'dist'),
-  filename: 'bundle.js',
-  clean: true, // Clean output folder before build
-};
-export const devtool = 'source-map';
-export const module = {
+
+// Required for __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
+  mode: 'development',
+
+  entry: resolve(__dirname, '../src/index.js'),
+
+  output: {
+    path: resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    clean: true,
+  },
+
+  devtool: 'eval-source-map',
+
+module: {
   rules: [
     {
-      test: /\.js$/, // Handles JS and JSX if Babel is set up
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader', // Requires .babelrc or babel.config.js
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+        },
       },
     },
     {
-      test: /\.css$/, // Optional: if you use CSS
-      use: ['style-loader', 'css-loader'],
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader', 'postcss-loader'],
     },
     {
-      test: /\.(png|jpe?g|gif|svg)$/i, // For image assets
+      test: /\.(png|jpe?g|gif|svg)$/i,
       type: 'asset/resource',
     },
+    {
+      enforce: 'pre',
+      test: /\.js$/,
+      //loader: 'source-map-loader',
+      include: /node_modules/,
+      exclude: [/webpack/, /react/, /react-dom/, /babel-loader/],
+    },
   ],
-};
-export const plugins = [
-  new HtmlWebpackPlugin({
-    template: './public/index.html',
-  }),
-];
-export const devServer = {
-  static: {
-    directory: join(__dirname, 'public'),
+},
+
+
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@': resolve(__dirname, '../src'),
+    },
   },
-  port: 3000,
-  open: true,
-  hot: true,
-  setupMiddlewares: (middlewares, devServer) => {
-    console.log('Dev server middleware is set up.');
-    return middlewares;
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
+
+  devServer: {
+    static: {
+      directory: join(__dirname, 'public'),
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    historyApiFallback: true,
+    setupMiddlewares: (middlewares, devServer) => {
+      console.log('Dev server middleware is set up.');
+      return middlewares;
+    },
   },
 };

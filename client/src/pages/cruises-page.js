@@ -1,9 +1,13 @@
 import { useState } from "react";
+import '../index.css';
+
 import { useQuery } from "@tanstack/react-query";
-//import { Cruise } from "./shared/schema";
+//import { Cruise } from "../shared/schema";
 import CruiseCard from "../Components/CruiseCard";
 import SearchCruises from "../Components/SearchCruises";
 import { Loader2 } from "lucide-react";
+//import { insertCruiseSchema } from "../shared/schema";
+//import {insertCruiseSchema } from "../shared/schema";
 
 export default function CruisesPage() {
   const [filteredCruises, setFilteredCruises] = useState(null);

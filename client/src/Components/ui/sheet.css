@@ -1,0 +1,78 @@
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* animations for fade-in/out */
+  animation-duration: 0.3s;
+}
+
+.sheet-overlay[data-state="open"] {
+  animation-name: fade-in;
+}
+
+.sheet-overlay[data-state="closed"] {
+  animation-name: fade-out;
+}
+
+/* Sheet container base styles */
+.sheet-content {
+  position: fixed;
+  z-index: 50;
+  gap: 1rem;
+  background-color: var(--background, white);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  /* Animations will be added depending on open/close state */
+}
+
+/* Sides & animations */
+
+.sheet-content.right {
+  inset-y: 0;
+  right: 0;
+  height: 100%;
+  width: 75%;
+  border-left: 1px solid var(--border-color);
+  max-width: 24rem; /* sm:max-w-sm */
+}
+
+.sheet-content.right[data-state="open"] {
+  animation-name: slide-in-from-right;
+  animation-duration: 0.5s;
+}
+
+.sheet-content.right[data-state="closed"] {
+  animation-name: slide-out-to-right;
+  animation-duration: 0.3s;
+}
+
+/* Similarly for left, top, bottom with their respective styles and animations */
+
+/* Close button */
+
+.sheet-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  border-radius: 0.125rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+  background-color: transparent;
+}
+
+.sheet-close:hover,
+.sheet-close:focus {
+  opacity: 1;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring-color);
+}
+
+.sheet-close:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Header, Footer, Title, Description can be styled similarly */
+

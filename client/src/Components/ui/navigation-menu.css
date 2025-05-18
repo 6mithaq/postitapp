@@ -1,0 +1,147 @@
+/* Base container */
+.navigation-menu-root {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  max-width: max-content;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation menu list */
+.navigation-menu-list {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem; /* space-x-1 */
+}
+
+/* Navigation menu trigger */
+.navigation-menu-trigger {
+  display: inline-flex;
+  height: 2.5rem; /* h-10 */
+  max-width: max-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* rounded-md */
+  background-color: var(--background);
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navigation-menu-trigger:hover,
+.navigation-menu-trigger:focus {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  outline: none;
+}
+
+.navigation-menu-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* When state is open */
+.navigation-menu-trigger[data-state="open"] {
+  color: var(--accent-foreground);
+  background-color: rgba(var(--accent-rgb), 0.5);
+}
+
+.navigation-menu-trigger[data-state="open"]:hover,
+.navigation-menu-trigger[data-state="open"]:focus {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Chevron icon inside trigger */
+.navigation-menu-chevron {
+  position: relative;
+  top: 1px;
+  margin-left: 0.25rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.navigation-menu-trigger[data-state="open"] .navigation-menu-chevron {
+  transform: rotate(180deg);
+}
+
+/* Navigation menu content */
+.navigation-menu-content {
+  position: static;
+  width: 100%;
+  animation-duration: 0.3s;
+}
+
+@media (min-width: 768px) {
+  .navigation-menu-content {
+    position: absolute;
+    width: auto;
+  }
+}
+
+/* Animations for content */
+/* Fade, slide, zoom animations can be added using @keyframes as per your preference */
+
+/* Navigation menu viewport wrapper */
+.navigation-menu-viewport-wrapper {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Navigation menu viewport */
+.navigation-menu-viewport {
+  transform-origin: top center;
+  position: relative;
+  margin-top: 0.375rem;
+  height: var(--radix-navigation-menu-viewport-height);
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation-duration: 0.3s;
+}
+
+@media (min-width: 768px) {
+  .navigation-menu-viewport {
+    width: var(--radix-navigation-menu-viewport-width);
+  }
+}
+
+/* Navigation menu indicator */
+.navigation-menu-indicator {
+  position: relative;
+  top: 100%;
+  z-index: 1;
+  display: flex;
+  height: 0.375rem;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  animation-duration: 0.3s;
+}
+
+.navigation-menu-indicator-arrow {
+  position: relative;
+  top: 60%;
+  height: 0.5rem;
+  width: 0.5rem;
+  transform: rotate(45deg);
+  border-top-left-radius: 0.125rem;
+  background-color: var(--border);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

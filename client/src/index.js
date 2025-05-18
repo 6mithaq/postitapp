@@ -1,34 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { store } from "./Store/store";
-import { Provider } from "react-redux";
 
-import { persistore } from "./Store/store";
-import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from './Store/store'; 
+import { Provider } from 'react-redux';
 
-import { createRoot } from "react-dom/client";
+import { PersistGate } from 'redux-persist/integration/react'; //Needed for redux-persist
 
+function loader(source) {
 
-
-
+  return source;
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  
-   <Provider store={store}>
-    {/* put a <Provider> around your
-    <App>, and pass the store as a prop:*/}
-    <React.StrictMode>
-      <PersistGate loading={null} persistor={persistore}>
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <App />
       </PersistGate>
-    </React.StrictMode>
-  </Provider>
-  
+    </Provider>
+  </React.StrictMode>
 );
-
-
 reportWebVitals();
+
+export default loader;

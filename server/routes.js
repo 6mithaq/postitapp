@@ -4,6 +4,10 @@ import { setupAuth } from "../auth.js";
 import { createBookingSchema, insertCruiseSchema } from "@shared/schema";
 import { z } from "zod";
 
+// Node environment only
+const tailwindConfig = require('./tailwind.config.js');
+
+
 // Middleware to check if user is authenticated
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {

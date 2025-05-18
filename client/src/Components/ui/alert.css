@@ -1,0 +1,54 @@
+.alert-base {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db; /* neutral border as default */
+  background-color: var(--background, #fff);
+  color: var(--foreground, #111827);
+}
+
+.alert-default {
+  background-color: var(--background, #fff);
+  color: var(--foreground, #111827);
+}
+
+.alert-destructive {
+  border-color: rgba(239, 68, 68, 0.5); /* red border */
+  color: #ef4444; /* text-destructive */
+  background-color: #fff0f0;
+}
+
+.alert-base > svg {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--foreground, #111827);
+}
+
+.alert-destructive > svg {
+  color: #ef4444;
+}
+
+.alert-base > svg ~ * {
+  padding-left: 1.75rem;
+}
+
+.alert-base > svg + div {
+  transform: translateY(-3px);
+}
+
+.alert-title {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.alert-description {
+  font-size: 0.875rem;
+}
+
+.alert-description p {
+  line-height: 1.6;
+}
